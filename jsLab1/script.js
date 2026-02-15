@@ -1,3 +1,14 @@
+console.log("Використання: triangle(value1, type1, value2, type2)");
+console.log("Типи: 'leg', 'hypotenuse', 'adjacent angle', 'opposite angle', 'angle'");
+
+function degToRad(deg) {
+    return deg * Math.PI / 180;
+}
+
+function radToDeg(rad) {
+    return rad * 180 / Math.PI;
+}
+
 function triangle(v1, t1, v2, t2) {
     const types = ["leg", "hypotenuse", "adjacent angle", "opposite angle", "angle"];
 
@@ -93,11 +104,11 @@ function triangle(v1, t1, v2, t2) {
         return "failed";
     }
 
-    console.log("a =", a.toFixed(3));
-    console.log("b =", b.toFixed(3));
-    console.log("c =", c.toFixed(3));
-    console.log("alpha =", alpha.toFixed(2));
-    console.log("beta =", beta.toFixed(2));
+   console.log("a =", a);
+   console.log("b =", b);
+   console.log("c =", c);
+   console.log("alpha =", alpha);
+   console.log("beta =", beta);
 
     return "success";
 }
