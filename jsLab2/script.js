@@ -238,13 +238,13 @@ console.log(firstParallelogram);
 firstParallelogram.info();
 
 //Triangular
-function Triangular(a = 3, b = 4, c = 5) {
+function Triangular({ a = 3, b = 4, c = 5 } = {}) {
     return { a, b, c };
 }
 
-const tri1 = Triangular();
-const tri2 = Triangular(6, 8, 10);
-const tri3 = Triangular(10, 10, 12);
+let tri1 = Triangular();  
+let tri2 = Triangular({ a: 6, b: 8, c: 10 }); 
+let tri3 = Triangular({ c: 12, a: 10, b: 10 });
 
 console.log(tri1, tri2, tri3);
 
@@ -255,9 +255,9 @@ function PiMultiplier(multiplier) {
     };
 }
 
-const multiplyBy2 = PiMultiplier(2);
-const multiplyByTwoThirds = PiMultiplier(2/3);
-const divideBy2 = PiMultiplier(1/2);
+let multiplyBy2 = PiMultiplier(2);
+let multiplyByTwoThirds = PiMultiplier(2/3);
+let divideBy2 = PiMultiplier(1/2);
 
 console.log("PI * 2 = " + multiplyBy2());
 console.log("PI * 2/3 = " + multiplyByTwoThirds());
@@ -309,4 +309,5 @@ PaintRed(obj3);
 console.log("Testing PaintYellow");
 PaintYellow(obj1);
 PaintYellow(obj2); 
+
 PaintYellow(obj3); 
