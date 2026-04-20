@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+#setup {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.pixel {
+    position: absolute;
+    display: none; /* З'являється лише під час гри */
+    cursor: pointer;
+    transition: none;
+}
+
+#game-info {
+    margin-top: 10px;
+    font-weight: bold;
+}
