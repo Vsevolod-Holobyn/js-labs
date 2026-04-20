@@ -20,11 +20,20 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     function movePixel() {
-        const maxX = window.innerWidth - currentSettings.size;
-        const maxY = window.innerHeight - currentSettings.size - 100; 
-        
-        const randomX = Math.floor(Math.random() * maxX);
-        const randomY = Math.floor(Math.random() * maxY) + 100;
+        const spreadFactors = { lazy: 0.3, normal: 0.6, hard: 1.0 };
+        const factor = spreadFactors[difficultySelect.value] || 1.0;
+
+        const windowW = window.innerWidth;
+        const windowH = window.innerHeight - 100;
+
+        const availableW = (windowW - currentSettings.size) * factor;
+        const availableH = (windowH - currentSettings.size) * factor;
+
+        const offsetX = (windowW - availableW - currentSettings.size) / 2;
+        const offsetY = (windowH - availableH - currentSettings.size) / 2 + 100;
+
+        const randomX = Math.floor(Math.random() * availableW) + offsetX;
+        const randomY = Math.floor(Math.random() * availableH) + offsetY;
 
         pixel.style.left = randomX + "px";
         pixel.style.top = randomY + "px";
