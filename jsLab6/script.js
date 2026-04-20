@@ -4,16 +4,19 @@ let moves = 0;
 let seconds = 0;
 let timerInterval = null;
 let boardState = [];
+let lastR = -1;
+let lastC = -1;
 
 const boardElement = document.getElementById('board');
 const moveDisplay = document.getElementById('move-count');
 const timerDisplay = document.getElementById('timer');
 const targetDisplay = document.getElementById('target-moves');
 
-// 1. Отримання даних із сервера AJAX/Fetch 
 async function fetchLevels() {
     try {
         const response = await fetch('data.json');
+        if (!response.ok) throw new Error('Помилка завантаження файлу');
+        
         allLevels = await response.json();
         loadNewGame();
     } catch (error) {
@@ -21,7 +24,7 @@ async function fetchLevels() {
     }
 }
 
-// 2. Ініціалізація нової гри 
+
 function loadNewGame() {
     let nextLevel;
     do {
@@ -34,7 +37,7 @@ function loadNewGame() {
     targetDisplay.textContent = currentLevelData.target;
 }
 
-// 3. Налаштування ігрового поля 
+
 function setupBoard(grid) {
     boardElement.innerHTML = '';
     boardState = grid.map(function(row) {
@@ -47,6 +50,7 @@ function setupBoard(grid) {
             cell.classList.add('cell');
             cell.dataset.row = r;
             cell.dataset.col = c;
+            
             updateCellView(cell, boardState[r][c]);
             
             cell.addEventListener('click', function() {
@@ -58,26 +62,42 @@ function setupBoard(grid) {
     }
 }
 
-// 4. Логіка натискання та перемикання сусідів
 function handleCellClick(r, c) {
-    toggle(r, c);       
-    toggle(r - 1, c);  
-    toggle(r + 1, c);   
-    toggle(r, c - 1); 
-    toggle(r, c + 1);  
+    if (r === lastR && c === lastC) {
+        toggleCross(r, c);
+        moves--;
+        
+        lastR = -1; 
+        lastC = -1;
+    } else {
+        toggleCross(r, c);
+        moves++;
+        
+        lastR = r;
+        lastC = c;
+    }
 
-    moves++;
     moveDisplay.textContent = moves;
     
     if (moves === 1) startTimer();
+    
     checkWin();
 }
 
-function toggle(r, c) {
+function toggleCross(r, c) {
+    toggle(r, r, c);      
+    toggle(r - 1, r - 1, c); 
+    toggle(r + 1, r + 1, c); 
+    toggle(r, r, c - 1); 
+    toggle(r, r, c + 1);   
+}
+
+function toggle(targetR, r, c) {
     if (r >= 0 && r < 5 && c >= 0 && c < 5) {
         boardState[r][c] = boardState[r][c] === 1 ? 0 : 1;
+        
         const cell = boardElement.querySelector(`[data-row="${r}"][data-col="${c}"]`);
-        updateCellView(cell, boardState[r][c]);
+        if (cell) updateCellView(cell, boardState[r][c]);
     }
 }
 
@@ -91,7 +111,6 @@ function updateCellView(element, state) {
     }
 }
 
-// 5. Перевірка перемоги
 function checkWin() {
     const isWon = boardState.every(function(row) {
         return row.every(function(cell) {
@@ -107,7 +126,6 @@ function checkWin() {
     }
 }
 
-// 6. Таймер та статистика
 function startTimer() {
     if (timerInterval) return;
     timerInterval = setInterval(function() {
@@ -119,26 +137,29 @@ function startTimer() {
 }
 
 function stopTimer() {
-    clearInterval(timerInterval);
-    timerInterval = null;
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+    }
 }
 
 function resetStats() {
     stopTimer();
     moves = 0;
     seconds = 0;
+    lastR = -1;
+    lastC = -1;
     moveDisplay.textContent = "0";
     timerDisplay.textContent = "0:00";
 }
 
-// Кнопки управління
 document.getElementById('new-game-btn').addEventListener('click', loadNewGame);
 
-// ЗАМІНЕНО: стрілкову функцію для кнопки рестарту
 document.getElementById('restart-btn').addEventListener('click', function() {
-    resetStats();
-    setupBoard(currentLevelData.grid); 
+    if (currentLevelData) {
+        resetStats();
+        setupBoard(currentLevelData.grid); 
+    }
 });
 
-// Запуск при завантаженні
 window.addEventListener('DOMContentLoaded', fetchLevels);
