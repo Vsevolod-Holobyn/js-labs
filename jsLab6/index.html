@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Lights Out Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>5x5 Lights Out</h1>
+        
+        <div class="stats">
+            <span>Target: <b id="target-moves">0</b></span>
+            <span>Moves: <b id="move-count">0</b></span>
+            <span>Time: <b id="timer">0:00</b></span>
+        </div>
+
+        <div id="board" class="board"></div>
+
+        <div class="controls">
+            <button id="new-game-btn">New Game</button>
+            <button id="restart-btn">Restart</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
