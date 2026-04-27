@@ -1,0 +1,37 @@
+{
+  "categoryName": "Книги",
+  "items": [
+    {
+      "id": 1,
+      "name": "JavaScript для початківців",
+      "shortname": "js-start",
+      "description": "Практичний вступ до сучасного JavaScript.",
+      "price": "420 UAH",
+      "image": "https://placehold.co/200x200?text=JavaScript"
+    },
+    {
+      "id": 2,
+      "name": "Алгоритми щодня",
+      "shortname": "algo-daily",
+      "description": "Пояснення базових алгоритмів простими словами.",
+      "price": "390 UAH",
+      "image": "https://placehold.co/200x200?text=Algorithms"
+    },
+    {
+      "id": 3,
+      "name": "Дизайн веб-інтерфейсів",
+      "shortname": "ui-design",
+      "description": "Поради з UX/UI для створення зрозумілих інтерфейсів.",
+      "price": "450 UAH",
+      "image": "https://placehold.co/200x200?text=UI+Book"
+    },
+    {
+      "id": 4,
+      "name": "Clean Code Notes",
+      "shortname": "clean-notes",
+      "description": "Стислі нотатки про чистий та підтримуваний код.",
+      "price": "510 UAH",
+      "image": "https://placehold.co/200x200?text=Clean+Code"
+    }
+  ]
+}

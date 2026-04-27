@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Кава",
+    "shortname": "coffee",
+    "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    "id": 2,
+    "name": "Десерти",
+    "shortname": "desserts",
+    "notes": "Свіжі десерти щодня. Можливі сезонні позиції."
+  },
+  {
+    "id": 3,
+    "name": "Книги",
+    "shortname": "books",
+    "notes": ""
+  },
+  {
+    "id": 4,
+    "name": "Онлайн-курси",
+    "shortname": "courses",
+    "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  }
+]

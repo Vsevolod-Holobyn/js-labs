@@ -1,0 +1,37 @@
+{
+  "categoryName": "Онлайн-курси",
+  "items": [
+    {
+      "id": 1,
+      "name": "Front-end Start",
+      "shortname": "fe-start",
+      "description": "Базовий курс HTML, CSS та JavaScript для новачків.",
+      "price": "1500 UAH",
+      "image": "https://placehold.co/200x200?text=Frontend"
+    },
+    {
+      "id": 2,
+      "name": "JavaScript Advanced",
+      "shortname": "js-adv",
+      "description": "Поглиблене вивчення асинхронності та архітектури коду.",
+      "price": "2400 UAH",
+      "image": "https://placehold.co/200x200?text=JS+Advanced"
+    },
+    {
+      "id": 3,
+      "name": "UI/UX Essentials",
+      "shortname": "uiux-ess",
+      "description": "Курс з основ створення зручних цифрових продуктів.",
+      "price": "1800 UAH",
+      "image": "https://placehold.co/200x200?text=UI+UX"
+    },
+    {
+      "id": 4,
+      "name": "Git та командна робота",
+      "shortname": "git-team",
+      "description": "Практика з Git-репозиторіями та процесом code review.",
+      "price": "1300 UAH",
+      "image": "https://placehold.co/200x200?text=Git+Team"
+    }
+  ]
+}

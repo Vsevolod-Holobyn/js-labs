@@ -1,0 +1,37 @@
+{
+  "categoryName": "Десерти",
+  "items": [
+    {
+      "id": 1,
+      "name": "Чізкейк Нью-Йорк",
+      "shortname": "cheesecake",
+      "description": "Кремовий сирний десерт на пісочній основі.",
+      "price": "110 UAH",
+      "image": "https://placehold.co/200x200?text=Cheesecake"
+    },
+    {
+      "id": 2,
+      "name": "Тірамісу",
+      "shortname": "tiramisu",
+      "description": "Класичний італійський десерт з кавовим ароматом.",
+      "price": "120 UAH",
+      "image": "https://placehold.co/200x200?text=Tiramisu"
+    },
+    {
+      "id": 3,
+      "name": "Макарон асорті",
+      "shortname": "macarons",
+      "description": "Набір мигдалевих тістечок з різними смаками.",
+      "price": "95 UAH",
+      "image": "https://placehold.co/200x200?text=Macarons"
+    },
+    {
+      "id": 4,
+      "name": "Шоколадний брауні",
+      "shortname": "brownie",
+      "description": "Насичений шоколадний десерт з горіхами.",
+      "price": "88 UAH",
+      "image": "https://placehold.co/200x200?text=Brownie"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "categoryName": "Кавові напої",
+  "items": [
+    {
+      "id": 1,
+      "name": "Еспресо",
+      "shortname": "espresso",
+      "description": "Класичний міцний напій з насиченим смаком.",
+      "price": "55 UAH",
+      "image": "https://placehold.co/200x200?text=Espresso"
+    },
+    {
+      "id": 2,
+      "name": "Американо",
+      "shortname": "americano",
+      "description": "Еспресо з додаванням гарячої води.",
+      "price": "60 UAH",
+      "image": "https://placehold.co/200x200?text=Americano"
+    },
+    {
+      "id": 3,
+      "name": "Капучино",
+      "shortname": "cappuccino",
+      "description": "Ніжна молочна піна та подвійний шот еспресо.",
+      "price": "78 UAH",
+      "image": "https://placehold.co/200x200?text=Cappuccino"
+    },
+    {
+      "id": 4,
+      "name": "Лате",
+      "shortname": "latte",
+      "description": "М'який кавовий напій з великою кількістю молока.",
+      "price": "82 UAH",
+      "image": "https://placehold.co/200x200?text=Latte"
+    }
+  ]
+}
