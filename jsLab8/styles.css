@@ -1,0 +1,263 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #eee;
+  color: #222;
+}
+
+.site-header {
+  background: #234;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #123;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hamburger__bar {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.site-header.is-open .hamburger__bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.site-header.is-open .hamburger__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.is-open .hamburger__bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.main-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 1rem;
+}
+
+.main-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.6rem;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.main-nav__link:hover,
+.main-nav__link:focus-visible {
+  background: rgba(255, 255, 255, 0.15);
+  outline: none;
+}
+
+.main-nav__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.carousel-section {
+  margin-bottom: 1.5rem;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background: #333;
+}
+
+.carousel__viewport {
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 12 / 5;
+  max-height: min(70vh, 500px);
+}
+
+.carousel__track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.carousel__slide {
+  flex: 0 0 100%;
+  margin: 0;
+  height: 100%;
+}
+
+.carousel__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #222;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.carousel__arrow--prev {
+  left: 8px;
+}
+
+.carousel__arrow--next {
+  right: 8px;
+}
+
+.carousel__dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.carousel__dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.carousel__dot.is-active {
+  background: #fff;
+}
+
+.gallery__title {
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem;
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.gallery__grid img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+}
+
+.gallery--large-only {
+  display: block;
+}
+
+.gallery--medium-only {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .site-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .main-nav {
+    flex-basis: 100%;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
+    pointer-events: none;
+  }
+
+  .site-header.is-open .main-nav {
+    max-height: 280px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .main-nav__list {
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .main-nav__link {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .carousel__viewport {
+    aspect-ratio: 16 / 10;
+    max-height: min(50vh, 300px);
+  }
+
+  .carousel__arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+
+  .gallery--large-only {
+    display: none;
+  }
+
+  .gallery--medium-only {
+    display: block;
+  }
+}
